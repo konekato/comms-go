@@ -4,7 +4,7 @@ import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 
-	"handler"
+	"service"
 )
 
 func main() {
@@ -13,7 +13,11 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.GET("/", handler.Hello)
+	// Home
+	e.GET("/", service.Home)
+	e.GET("/home", service.Home)
+
+	//
 
 	e.Logger.Fatal(e.Start(":1323"))
 }

@@ -1,4 +1,4 @@
-package handler
+package service
 
 import (
 	"net/http"
@@ -6,6 +6,6 @@ import (
 	"github.com/labstack/echo"
 )
 
-func Hello(c echo.Context) error {
+func Home(c echo.Context) error {
 	return c.String(http.StatusOK, "Hello, World!")
 }
