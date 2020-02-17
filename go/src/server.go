@@ -1,7 +1,7 @@
 package main
 
 import (
-	echotemplate "github.com/foolin/echo-template"
+	"github.com/foolin/goview/supports/echoview"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 
@@ -17,14 +17,14 @@ func main() {
 	app.Use(middleware.Recover())
 
 	// Set Renderer
-	app.Renderer = echotemplate.Default()
+	app.Renderer = echoview.Default()
 
 	// Routes
 	// Home
 	app.GET("/", service.Home)
 	app.GET("/home", service.Home)
 	// Register
-	// app.GET("/register", service.RegisterForm)
+	app.GET("/register", service.RegisterForm)
 	// app.POST("/register", service.Register)
 
 	app.Logger.Fatal(app.Start(":1323"))
