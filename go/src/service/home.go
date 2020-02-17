@@ -7,5 +7,5 @@ import (
 )
 
 func Home(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
+	return c.Render(http.StatusOK, "index.html", echo.Map{"title": "Home"})
 }

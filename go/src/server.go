@@ -1,6 +1,7 @@
 package main
 
 import (
+	echotemplate "github.com/foolin/echo-template"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 
@@ -8,16 +9,23 @@ import (
 )
 
 func main() {
-	e := echo.New()
+	// Echo instance
+	app := echo.New()
 
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
+	// Middleware
+	app.Use(middleware.Logger())
+	app.Use(middleware.Recover())
 
+	// Set Renderer
+	app.Renderer = echotemplate.Default()
+
+	// Routes
 	// Home
-	e.GET("/", service.Home)
-	e.GET("/home", service.Home)
+	app.GET("/", service.Home)
+	app.GET("/home", service.Home)
+	// Register
+	// app.GET("/register", service.RegisterForm)
+	// app.POST("/register", service.Register)
 
-	//
-
-	e.Logger.Fatal(e.Start(":1323"))
+	app.Logger.Fatal(app.Start(":1323"))
 }
