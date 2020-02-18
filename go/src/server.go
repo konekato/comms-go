@@ -25,7 +25,7 @@ func main() {
 	app.GET("/home", service.Home)
 	// Register
 	app.GET("/register", service.RegisterForm)
-	// app.POST("/register", service.Register)
+	app.POST("/register", service.Register)
 
 	app.Logger.Fatal(app.Start(":1323"))
 }

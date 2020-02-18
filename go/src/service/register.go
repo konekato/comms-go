@@ -9,3 +9,7 @@ import (
 func RegisterForm(c echo.Context) error {
 	return c.Render(http.StatusOK, "register.html", echo.Map{"title": "Register"})
 }
+
+func Register(c echo.Context) error {
+	return c.JSON(http.StatusOK, "OK")
+}
