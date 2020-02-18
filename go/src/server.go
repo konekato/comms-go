@@ -21,10 +21,10 @@ func main() {
 
 	// Routes
 	// Home
-	app.GET("/", service.Home)
-	app.GET("/home", service.Home)
+	app.GET("/", service.HomeView)
+	app.GET("/home", service.HomeView)
 	// Register
-	app.GET("/register", service.RegisterForm)
+	app.GET("/register", service.RegisterView)
 	app.POST("/register", service.Register)
 
 	app.Logger.Fatal(app.Start(":1323"))

@@ -6,6 +6,6 @@ import (
 	"github.com/labstack/echo"
 )
 
-func Home(c echo.Context) error {
+func HomeView(c echo.Context) error {
 	return c.Render(http.StatusOK, "home.html", echo.Map{"title": "Home"})
 }
